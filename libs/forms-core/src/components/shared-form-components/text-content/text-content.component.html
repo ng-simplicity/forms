@@ -1,0 +1,8 @@
+<ng-container [ngSwitch]="contentConfig.tag">
+  <p *ngSwitchCase="'p'" class="{{contentConfig.tagClasses || ''}}">{{contentConfig.text}}</p>
+  <div *ngSwitchCase="'div'" class="{{contentConfig.tagClasses || ''}}">{{contentConfig.text}}</div>
+  <h1 *ngSwitchCase="'h1'" class="{{contentConfig.tagClasses || ''}}">{{contentConfig.text}}</h1>
+  <h2 *ngSwitchCase="'h2'" class="{{contentConfig.tagClasses || ''}}">{{contentConfig.text}}</h2>
+  <h3 *ngSwitchCase="'h3'" class="{{contentConfig.tagClasses || ''}}">{{contentConfig.text}}</h3>
+  <h4 *ngSwitchCase="'h4'" class="{{contentConfig.tagClasses || ''}}">{{contentConfig.text}}</h4>
+</ng-container>

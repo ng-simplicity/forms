@@ -1,0 +1,20 @@
+@if (control) {
+  <div [class.d-flex]="radioConfig.alignment==='horizontal'">
+    @if (!!radioConfig.label) {
+      <div class="form-label me-2 pt-0" [class.text-danger]="!!errorMessage">
+        {{ radioConfig.label }}
+      </div>
+    }
+    @for (option of options; track option.id) {
+      <div class="form-check"
+           [class.form-check-inline]="radioConfig.alignment==='horizontal'"
+           [class.me-2]="radioConfig.alignment==='horizontal'">
+        <input class="form-check-input" type="radio" id="{{id}}{{option.id}}" [value]="option.id"
+               [formControl]="control" [class.border-danger]="!!errorMessage">
+        <label class="form-check-label" for="{{id}}{{option.id}}"
+               [class.text-danger]="!!errorMessage">{{ option.label }}</label>
+      </div>
+    }
+  </div>
+}
+

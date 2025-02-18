@@ -1,0 +1,29 @@
+@if(control){
+@if(textAreaConfig.labelLocation === 'top' || !textAreaConfig.labelLocation){
+<div class="mb-3">
+  <label [class.text-danger]="!!errorMessage" class="form-label" for="{{id}}-top">{{textAreaConfig.label}}</label>
+  <textarea *ngIf="control" [class.border-danger]="!!errorMessage"
+            [formControl]="control"
+            class="form-control {{textAreaConfig.inputCssClass}}"
+            id="{{id}}-top"
+            style="height: 210px"
+            placeholder="{{textAreaConfig.placeholder}}"></textarea>
+  <div *ngIf="errorMessage" class="text-danger">{{errorMessage}}</div>
+</div>
+
+} @else {
+<div *ngIf="textAreaConfig.labelLocation === 'left'" class="mb-3 row">
+  <label [class.text-danger]="!!errorMessage" class="col-sm-2 col-form-label" for="{{id}}-left">{{textAreaConfig.label}}</label>
+  <div class="col-sm-10">
+      <textarea *ngIf="control"
+                [class.border-danger]="!!errorMessage"
+                [formControl]="control"
+                class="form-control {{textAreaConfig.inputCssClass}}"
+                id="{{id}}-left"
+                style="height: 210px"
+                placeholder="{{textAreaConfig.placeholder}}"></textarea>
+  </div>
+  <div *ngIf="errorMessage" class="text-danger">{{errorMessage}}</div>
+</div>
+}
+}

@@ -1,0 +1,25 @@
+@if (!!control) {
+  @if (textConfig.labelLocation === 'top') {
+    <div>
+      <label for="{{id}}-top" class="form-label" [class.text-danger]="!!errorMessage">{{ textConfig.label }}</label>
+      <input [formControl]="control" type="{{textConfig.type}}" class="form-control"
+             placeholder="{{textConfig.placeholder}}" id="{{id}}-top" [class.border-danger]="!!errorMessage" />
+      @if (errorMessage) {
+        <div class="invalid-feedback" *ngIf="errorMessage">{{ errorMessage }}</div>
+      }
+    </div>
+  }
+  @if (textConfig.labelLocation === 'left') {
+    <div class="row">
+      <label for="{{id}}-left" class="col-sm-2 col-form-label"
+             [class.text-danger]="!!errorMessage">{{ textConfig.label }}</label>
+      <div class="col-sm-10">
+        <input *ngIf="control" [formControl]="control" type="{{textConfig.type}}" class="form-control"
+               placeholder="{{textConfig.placeholder}}" id="{{id}}-left" [class.border-danger]="!!errorMessage" />
+      </div>
+      @if (errorMessage) {
+        <div class="invalid-feedback">{{ errorMessage }}</div>
+      }
+    </div>
+  }
+}

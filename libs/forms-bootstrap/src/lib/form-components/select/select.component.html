@@ -1,0 +1,41 @@
+@if (control) {
+  @if (selectConfig.labelLocation === 'top') {
+    <div class="mb-3">
+      <label for="{{id}}-top" class="form-label" [class.text-danger]="!!errorMessage">{{ selectConfig.label }}</label>
+      <select *ngIf="!!control" class="form-select" [attr.aria-label]="selectConfig.label" [formControl]="control"
+              [class.border-danger]="!!errorMessage">
+        @if (selectConfig.placeholder) {
+          <option [value]="selectConfig.placeHolderValue || ''" [disabled]="true">{{ selectConfig.placeholder }}
+          </option>
+        }
+        @for (option of options; track option.id) {
+          <option [disabled]="option.disabled" [value]="option.id">
+            {{ option.label }}
+          </option>
+        }
+      </select>
+      <div class="invalid-feedback" *ngIf="!!errorMessage">{{ errorMessage }}</div>
+    </div>
+  } @else {
+
+    <div class="mb-3 row">
+      <label for="{{id}}-left" class="col-sm-2 col-form-label"
+             [class.text-danger]="!!errorMessage">{{ selectConfig.label }}</label>
+      <div class="col-sm-10">
+        <select class="form-select" [attr.aria-label]="selectConfig.label" [formControl]="control"
+                [class.border-danger]="!!errorMessage">
+          @if (selectConfig.placeholder) {
+            <option [value]="selectConfig.placeHolderValue || ''" [disabled]="true">{{ selectConfig.placeholder }}
+            </option>
+          }
+          @for (option of options; track option.id) {
+            <option [disabled]="option.disabled" [value]="option.id">
+              {{ option.label }}
+            </option>
+          }
+        </select>
+        <div class="invalid-feedback" *ngIf="!!errorMessage">{{ errorMessage }}</div>
+      </div>
+    </div>
+  }
+}
