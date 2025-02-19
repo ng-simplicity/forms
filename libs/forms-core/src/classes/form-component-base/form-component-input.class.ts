@@ -1,12 +1,12 @@
 import { NGS_FORMS_FORM_GROUP,  NGS_PARENT_VISIBILITY } from '../../misc';
 import { NgsFormsFormItemConfigBaseInput, NgsFormsInternalService } from '../../internal';
 import { FormControl, UntypedFormControl, UntypedFormGroup, ValidatorFn } from '@angular/forms';
-import { Directive, Injector } from '@angular/core';
+import { Directive, Injector, OnInit } from '@angular/core';
 import { NgsFormsBaseClassFormComponent } from './form-component.class';
 import { Observable } from 'rxjs';
 
 @Directive({}) // for compiler
-export class NgsFormsBaseClassFormInputComponent extends NgsFormsBaseClassFormComponent {
+export class NgsFormsBaseClassFormInputComponent extends NgsFormsBaseClassFormComponent implements OnInit {
 
   private formGroup = this.injector.get<UntypedFormGroup>(NGS_FORMS_FORM_GROUP);
   private parentVisibility$ = this.injector.get<Observable<boolean>>(NGS_PARENT_VISIBILITY);
@@ -61,12 +61,12 @@ export class NgsFormsBaseClassFormInputComponent extends NgsFormsBaseClassFormCo
     this.subscribe(this.privateService.isSubmitted$,
       submitted => {
         this.submitted = submitted;
-        this.updateErrorMessage();
+        //this.updateErrorMessage();
       });
   }
 
   private bindControlValidityChange() {
-    // TODO: Add formwide debounce
+    // TODO: Add form wide debounce
     /*
     this.subscribe(this.control!.valueChanges,
       _ => this.updateErrorMessage()
