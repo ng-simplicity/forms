@@ -5,7 +5,7 @@ import {
   NGS_PARENT_VISIBILITY,
   NgsFormsBaseClassFormComponent,
   NgsFormItemController,
-  NgsFormsFormItemConfigBaseItemWithNameAndValidators,
+  NgsFormsFormItemConfigBaseItemWithNameAndValidators, NgsFormsFormItem
 } from '../../../internal';
 import { Observable } from 'rxjs';
 @Component({
@@ -56,5 +56,8 @@ export class NgsFormsFormGroupComponent
         this.controller?.destroy();
       }
     );
+  }
+  static create(params: NgsFormsFormItem<NgsFormsFormItemConfigBaseItemWithNameAndValidators>) : NgsFormsFormItem<NgsFormsFormItemConfigBaseItemWithNameAndValidators>{
+    return params;
   }
 }

@@ -1,5 +1,5 @@
 import { UntypedFormGroup } from '@angular/forms';
-import { NGS_FORMS_FORM_GROUP, NgsFormsBaseClassItemsContainerBase, NgsFormItemController } from '../../../internal';
+import { NGS_FORMS_FORM_GROUP, NgsFormsBaseClassItemsContainerBase, NgsFormItemController, NgsFormsFormItemConfigBase, NgsFormsFormItem } from '../../../internal';
 import { Component, Injector, OnInit } from '@angular/core';
 
 @Component({
@@ -22,5 +22,7 @@ export class NgsFormsColumnComponent extends NgsFormsBaseClassItemsContainerBase
     }
     return  true;
   }
-
+  static create(params: NgsFormsFormItem<NgsFormsFormItemConfigBase>): NgsFormsFormItem<NgsFormsFormItemConfigBase>{
+    return params;
+  }
 }
