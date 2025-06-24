@@ -13,4 +13,8 @@ export class NgsFormsTextContentComponent extends NgsFormsBaseClassFormComponent
   constructor(injector: Injector) {
     super(injector);
   }
+  
+  static create(params: NgsFormsFormItem<NgsFormItemTextContentConfig>): NgsFormsFormItem<NgsFormItemTextContentConfig> {
+    return params;
+  }
 }

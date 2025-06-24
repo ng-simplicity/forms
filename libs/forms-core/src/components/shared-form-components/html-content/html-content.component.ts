@@ -16,8 +16,12 @@ export class NgsFormsHtmlContentComponent extends NgsFormsBaseClassFormComponent
 {
   contentConfig = this.config as NgsFormItemHtmlContentConfig;
   html: string;
-  constructor(injector: Injector, private readonly santizer: Sanitizer) {
+  constructor(injector: Injector, private readonly sanitizer: Sanitizer) {
     super(injector);
-    this.html = this.santizer.sanitize(SecurityContext.HTML, this.contentConfig.html) || '';
+    this.html = this.sanitizer.sanitize(SecurityContext.HTML, this.contentConfig.html) || '';
+  }
+  
+  static create(params: NgsFormsFormItem<NgsFormItemHtmlContentConfig>): NgsFormsFormItem<NgsFormItemHtmlContentConfig> {
+    return params;
   }
 }

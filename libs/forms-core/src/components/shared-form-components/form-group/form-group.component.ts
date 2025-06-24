@@ -33,7 +33,7 @@ export class NgsFormsFormGroupComponent
   private bindVisible() {
     this.subscribe(
       this.visibilityObservable,
-      (isVisible) => {
+      (isVisible: boolean) => {
         if (this.isVisible === isVisible) return;
         this.isVisible = isVisible;
         if (isVisible) {

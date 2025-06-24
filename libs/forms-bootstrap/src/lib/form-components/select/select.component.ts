@@ -1,7 +1,7 @@
 import {Component, Injector} from "@angular/core";
 import { NgsFormsFormItemConfigBootstrapSelectInput } from './select.config';
 
-import { NgsFormsBaseClassFormItemInputWithOptionsComponent } from '@ng-simplicity/forms-core';
+import { NgsFormsBaseClassFormItemInputWithOptionsComponent, NgsFormsFormItem } from '@ng-simplicity/forms-core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -13,5 +13,9 @@ export class NgsFormsBootstrapFormItemSelectInputComponent extends NgsFormsBaseC
   selectConfig = this.config as NgsFormsFormItemConfigBootstrapSelectInput;
   constructor(injector: Injector) {
     super(injector);
+  }
+
+  static create(params: NgsFormsFormItem<NgsFormsFormItemConfigBootstrapSelectInput>): NgsFormsFormItem<NgsFormsFormItemConfigBootstrapSelectInput> {
+    return params;
   }
 }

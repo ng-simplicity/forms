@@ -11,7 +11,7 @@ import {
   NGS_FORMS_FORM_GROUP,
   NgsFormsBaseClassItemsContainerBase,
   NgsFormItemController,
-  NgsFormItemRowConfig,
+  NgsFormItemRowConfig, NgsFormsFormItem
 } from '../../../internal';
 import { NgForOf } from '@angular/common';
 
@@ -66,5 +66,9 @@ export class NgsFormsRowComponent
       return false;
     }
     return true;
+  }
+
+  static create(params: NgsFormsFormItem<NgsFormItemRowConfig>): NgsFormsFormItem<NgsFormItemRowConfig> {
+    return params;
   }
 }

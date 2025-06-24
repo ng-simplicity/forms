@@ -1,5 +1,5 @@
 import {Component, Injector} from "@angular/core";
-import {NgsFormsBaseClassFormInputComponent} from "@ng-simplicity/forms-core";
+import { NgsFormsBaseClassFormInputComponent, NgsFormsFormItem } from '@ng-simplicity/forms-core';
 import { ReactiveFormsModule } from '@angular/forms';
 import {defaults} from 'lodash';
 import { NgsFormBootstrapInputComponentResources } from './input-component.resources';
@@ -15,5 +15,9 @@ export class NgsFormsBootstrapFormItemInputComponent extends NgsFormsBaseClassFo
   textConfig: NgsFormsFormItemConfigBootstrapTextInput = defaults(this.config as NgsFormsFormItemConfigBootstrapTextInput, NgsFormBootstrapInputComponentResources.defaults);
   constructor(injector: Injector) {
     super(injector);
+  }
+
+  static create(params: NgsFormsFormItem<NgsFormsFormItemConfigBootstrapTextInput>): NgsFormsFormItem<NgsFormsFormItemConfigBootstrapTextInput> {
+    return params;
   }
 }

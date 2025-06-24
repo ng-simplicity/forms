@@ -1,6 +1,6 @@
 import { Component, Injector } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgsFormsBaseClassFormInputComponent } from '@ng-simplicity/forms-core';
+import { NgsFormsBaseClassFormInputComponent, NgsFormsFormItem } from '@ng-simplicity/forms-core';
 import { NgsFormsFormItemConfigBootstrapTextArea } from './text-area.config';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -14,5 +14,9 @@ export class NgsFormsBootstrapFormsItemTextAreaComponent extends NgsFormsBaseCla
   textAreaConfig = this.config as NgsFormsFormItemConfigBootstrapTextArea;
   constructor(injector: Injector) {
     super(injector);
+  }
+
+  static create(params: NgsFormsFormItem<NgsFormsFormItemConfigBootstrapTextArea>): NgsFormsFormItem<NgsFormsFormItemConfigBootstrapTextArea> {
+    return params;
   }
 }
